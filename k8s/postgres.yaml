@@ -18,6 +18,7 @@ metadata:
   namespace: ticketing
   labels:
     app: postgres
+
 spec:
   replicas: 1
   selector:

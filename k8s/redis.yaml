@@ -35,6 +35,7 @@ kind: Service
 metadata:
   name: redis
   namespace: ticketing
+
 spec:
   selector:
     app: redis
