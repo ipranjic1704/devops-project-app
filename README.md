@@ -11,6 +11,29 @@ Prikazuje cijeli tok: lokalni razvoj kroz Compose i produkcijski deployment kroz
 - `postgres` - trajna pohrana narudzbi
 - `redis` - queue/cache sloj
 
+## Preduvjeti
+
+  - Docker Desktop (ili Podman) s Docker Compose v2+
+  - Slobodni portovi: `3000` (frontend) i `8080` (API)
+
+## Pokretanje (startup)
+
+ 1. Kopiraj primjer okolišnih varijabli u stvarni `.env`:
+     ```bash
+     cp .env.example .env
+  2. Podigni cijeli stack jednom naredbom:
+  docker compose up --build
+  2. Compose poštuje depends_on + healthcheck: postgres i redis se
+  prvo dignu kao healthy, tek onda kreću api i worker.
+  3. (Opcionalno) razvoj s hot-reloadom — sinkronizira izmjene koda uživo:
+  docker compose watch
+
+## Zaustavljanje
+
+ - Zaustavi i ukloni kontejnere (podaci u bazi ostaju sačuvani u volumenu):
+  docker compose down
+  - Zaustavi i obriši i podatke (čisti reset baze):
+  docker compose down -v
 ### Brza validacija funkcionalnosti
 
 1. Health API:
