@@ -16,6 +16,7 @@ spec:
       labels:
         app: frontend
     spec:
+      serviceAccountName: app-sa
       containers:
         - name: frontend
           image: ticketing-frontend:latest

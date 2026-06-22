@@ -16,6 +16,7 @@ spec:
       labels:
         app: worker
     spec:
+      serviceAccountName: app-sa
       containers:
         - name: worker
           image: ticketing-worker:latest
