@@ -1,0 +1,11 @@
+# Okolišne varijable / tajne — pravi .env se NE commita (samo .env.example)
+.env
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db

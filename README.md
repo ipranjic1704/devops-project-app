@@ -18,12 +18,19 @@ Prikazuje cijeli tok: lokalni razvoj kroz Compose i produkcijski deployment kroz
 
 ## Pokretanje (startup)
 
-1. Podigni cijeli stack jednom naredbom:
+1. Kopiraj primjer okolišnih varijabli u stvarni `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+2. Podigni cijeli stack jednom naredbom:
+   ```bash
    docker compose up --build
-2. Compose poštuje depends_on + healthcheck: postgres i redis se
-   prvo dignu kao healthy, tek onda kreću api i worker.
+   ```
+   Compose poštuje `depends_on` + healthcheck: postgres i redis se prvo dignu kao healthy, tek onda kreću api i worker.
 3. (Opcionalno) razvoj s hot-reloadom — sinkronizira izmjene koda uživo:
+   ```bash
    docker compose watch
+   ```
 
 ## Zaustavljanje
 
