@@ -75,7 +75,9 @@ Prikazuje cijeli tok: lokalni razvoj kroz Compose i produkcijski deployment kroz
 
 Detalji skeniranja: `docs/security/image-scan-report.md`
 
-## Operativna dokumentacija
+## Dokumentacija
 
-- Sigurnosno izvješće skeniranja slika: `docs/security/image-scan-report.md`
+- Arhitektura i obrazloženje (kontejner vs VM, servisi, komunikacija): `docs/architecture.md`
+- Deployment u produkciju (Kubernetes / minikube, korak-po-korak): `docs/deployment.md`
+- Sigurnosno izvješće skeniranja slika (Trivy): `docs/security/image-scan-report.md`
 - Runbook za troubleshooting (pad baze, loš image tag, neispravan secret): `docs/runbook.md`

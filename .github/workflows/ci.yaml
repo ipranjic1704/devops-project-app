@@ -45,8 +45,8 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository_owner }}/ticketing-${{ matrix.service }}:${{ github.sha }}
             ghcr.io/${{ github.repository_owner }}/ticketing-${{ matrix.service }}:latest
+          # Povezuje objavljenu sliku na GHCR-u s ovim repozitorijem.
           labels: |
-            # Povezuje objavljenu sliku na GHCR-u s ovim repozitorijem.
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
 
       # QUALITY GATE: ovo je sigurnosna brana pipelinea.
