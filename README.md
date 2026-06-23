@@ -81,3 +81,27 @@ Detalji skeniranja: `docs/security/image-scan-report.md`
 - Deployment u produkciju (Kubernetes / minikube, korak-po-korak): `docs/deployment.md`
 - Sigurnosno izvješće skeniranja slika (Trivy): `docs/security/image-scan-report.md`
 - Runbook za troubleshooting (pad baze, loš image tag, neispravan secret): `docs/runbook.md`
+
+## Korištenje AI alata
+
+Pri izradi ovog projekta korišten je AI asistent (Claude) kao alat za **učenje i savjetovanje**
+kroz cijeli proces. Cilj je bio ispravno riješiti zadatak i pritom razumjeti gradivo, a ne dobiti
+gotovo rješenje.
+
+Konkretno, AI je korišten za:
+- objašnjavanje koncepata (kontejneri, Kubernetes objekti, RBAC, NetworkPolicy, CI/CD) prije svakog koraka;
+- vođenje korak-po-korak uz obrazloženje *zašto* se nešto radi i *gdje* je to obrađeno u nastavnim materijalima;
+- pomoć pri dijagnostici i otklanjanju grešaka (uz objašnjenje uzroka).
+
+### Izrada dokumentacije (`.md` datoteke)
+
+Tijekom rada vođen je **zaseban dnevnik** (`.md` datoteka) u koji se bilježilo **što se događalo i
+zašto** — koraci, izvršene naredbe, njihovi stvarni ispisi, donesene odluke te incidenti koji su se
+pojavljivali i način na koji su riješeni. Na temelju tog dnevnika, uz pomoć AI-ja, sastavljeni su
+README i ostale `.md` datoteke u `docs/` (`architecture.md`, `deployment.md`, `runbook.md`,
+`security/image-scan-report.md`). Autor je sadržaj pregledavao, ispravljao i usmjeravao. Tako
+dokumentacija odražava stvarne korake i rezultate ovog projekta, a ne generičke predloške.
+
+Sve naredbe, konfiguraciju (manifeste, Dockerfile-ove, CI pipeline) i odluke izveo je, upisao i
+provjerio autor projekta. AI nije korišten za automatsko generiranje koda bez razumijevanja, nego
+kao mentor koji ubrzava učenje i pomaže da se gradivo savlada ispravno.
