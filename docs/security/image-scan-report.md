@@ -5,8 +5,8 @@
 **Alat:** [Trivy](https://trivy.dev/) v0.71.2 (baza ranjivosti povučena na dan skeniranja)
 **Skenirane slike:** `ticketing-api:latest`, `ticketing-worker:latest`, `ticketing-frontend:latest`
 
-> Ovo izvješće zadovoljava zahtjev *"skeniranje slika prije deploya"* (2. dio, sigurnosni minimum)
-> i isporuku *"Sigurnosno izvješće skeniranja slika"* (Očekivani artefakti).
+> Sve aplikacijske slike skeniraju se Trivyjem prije deploya kako bi se poznate ranjivosti otkrile
+> dok su još izvan produkcije.
 
 ---
 

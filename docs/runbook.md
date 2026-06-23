@@ -4,9 +4,9 @@
 **Datum vježbe:** 2026-06-23
 **Servisi:** `frontend`, `api` (2 replike), `worker`, `postgres` (PVC), `redis`
 
-> Ovaj runbook pokriva tri incidentna scenarija tražena u projektu: **pad baze**, **loš image tag**
-> i **neispravan secret**. Svi scenariji su **stvarno reproducirani** na clusteru; outputi u nastavku
-> su pravi. Svaki scenarij ima: simptom → dijagnostiku → analizu uzroka → korektivnu mjeru → validaciju.
+> Runbook pokriva tri tipična produkcijska incidenta: **pad baze**, **loš image tag** i
+> **neispravan secret**. Svi su **stvarno reproducirani** na clusteru, pa su outputi u nastavku pravi.
+> Svaki scenarij ima: simptom → dijagnostiku → analizu uzroka → korektivnu mjeru → validaciju.
 
 ---
 
@@ -28,7 +28,7 @@ Sistematičan redoslijed pri svakom incidentu:
 | Pod `0/1`, `Exit Code 1`, restarta se, log `ECONNREFUSED` | ovisni servis (baza) nedostupan | 1 |
 | Pod `ImagePullBackOff` / `ErrImagePull`, kontejner se nikad ne pokrene | kriva/nepostojeća slika ili tag | 2 |
 | Pod `0/1`, **bez** restarta, readiness `503`, baza dostupna | kriva konfiguracija/kredencijali (Secret) | 3 |
-| Pod `ContainerCreating`, `FailedMount` u Events | kriv naziv ConfigMap/Secret/volumena | (vidi K3 niže) |
+| Pod `ContainerCreating`, `FailedMount` u Events | kriv naziv ConfigMap/Secret/volumena | (vidi Dodatak) |
 
 ---
 
@@ -194,9 +194,9 @@ Pod je opet `Ready` jer `/readyz` ponovno uspješno upituje bazu → kredencijal
 
 ## Dodatak: stvarni incident iz izgradnje (FailedMount)
 
-Tijekom postavljanja baze (korak K3) dogodio se stvaran incident vrijedan zabilježbe: ConfigMap s
-init skriptom kreiran je s tipfelerom u imenu (`postres-init` umjesto `postgres-init`), pa je pod ostao
-u `ContainerCreating`:
+Tijekom postavljanja baze dogodio se stvaran incident vrijedan zabilježbe: ConfigMap s init skriptom
+kreiran je s tipfelerom u imenu (`postres-init` umjesto `postgres-init`), pa je pod ostao u
+`ContainerCreating`:
 ```text
 Events:
   Warning  FailedMount  configmap "postgres-init" not found
