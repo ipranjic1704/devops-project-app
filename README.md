@@ -74,3 +74,8 @@ Prikazuje cijeli tok: lokalni razvoj kroz Compose i produkcijski deployment kroz
 - Trivy skeniranje slika u CI pipelineu
 
 Detalji skeniranja: `docs/security/image-scan-report.md`
+
+## Operativna dokumentacija
+
+- Sigurnosno izvješće skeniranja slika: `docs/security/image-scan-report.md`
+- Runbook za troubleshooting (pad baze, loš image tag, neispravan secret): `docs/runbook.md`
